@@ -4,6 +4,16 @@ def bem_vindo():
     print("*****************")
     calcular()
 
+def calcular_outra():
+    outra_vez = input("Deseja calcular mais uma vez? Digite S ou N:")
+    if outra_vez.upper() == "S":
+        calcular()
+    elif outra_vez.upper() == "N":
+        print("Até a próxima!")
+    else:
+        print("Opção inválida")
+        calcular_outra()
+
 def calculadora(n, a, b):
     if n == 1:
         c = a + b
@@ -28,5 +38,6 @@ def calcular():
     segundo_valor = int(input("Digite o segundo valor"))
 
     calculadora(operacao, primeiro_valor, segundo_valor)
+    calcular_outra()
 
 bem_vindo()
