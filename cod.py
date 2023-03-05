@@ -85,3 +85,35 @@ print("abacate" in programacao_python)
 numeros = [1, 10, 100, 1000]
 print(numeros)
 print(numeros[0])
+
+#adição
+numeros += [20, 25]
+print(numeros)
+
+numeros.append(27)
+print(numeros)
+
+#substituição
+numeros[1:3] = [1258] #subtitui nas posições 1 e 2
+print(numeros)
+
+#tamanho
+print(len(numeros))
+
+##Tuplas
+tupla = (1, 25, 32)
+print(tupla)
+
+##Dicionário
+notas = {"Ana":10, "Lucas":2, "Paulo":6}
+print(notas)
+print(notas["Ana"])
+
+notas["Xena"] = 9
+print(notas)
+
+del notas["Paulo"]
+print(notas)
+
+print("Paulo" in notas)
+print("Lucas" in notas)
