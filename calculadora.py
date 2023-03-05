@@ -1,6 +1,6 @@
 def bem_vindo():
     print("*****************")
-    print("Caculadora")
+    print("Calculadora")
     print("*****************")
     calcular()
 
@@ -39,5 +39,5 @@ def calcular():
 
     calculadora(operacao, primeiro_valor, segundo_valor)
     calcular_outra()
-
+    
 bem_vindo()
