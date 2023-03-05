@@ -63,3 +63,36 @@ for i in range(5):
     if i == 3:
         continue
     print(i)
+
+def hello_world():
+    print('hello world')
+
+hello_world()
+
+def print_text(x):
+    print("olá %s" %(x))
+
+print_text("carlos")
+
+def soma(a, b):
+    return a + b
+
+c = soma(1,5)
+print(c)
+
+nome = input("Como posso te chamar?")
+print("olá! %s" %(nome))
+
+
+nota1 = float(input("Informe a primeira nota:"))
+nota2 = float(input("Informe a segunda nota:"))
+nota3 = float(input("Informe a terceira nota:"))
+
+def media(nota1, nota2, nota3):
+    result = (nota1+nota2+nota3)/3
+    if result >= 6:
+        return print("o aluno foi aprovado com a nota %.2f" %(result))
+    else:
+       return print("o aluno não foi aprovado por a nota foi: %.2f" %(result))
+
+media(nota1, nota2, nota3)
