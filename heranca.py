@@ -21,12 +21,12 @@ class Professor(Pessoa):
         return self.__titulacao
 
 pessoa1 = Pessoa("Maria", "maria", 'm123')
-print(pessoa1.consulta_nome())
+# print(pessoa1.consulta_nome())
 
-aluna1 = Aluno('Viviane', 'vivi', 'v123', 'Informática')
-print(aluna1.consulta_nome())
-print(aluna1.consulta_curso())
+# aluna1 = Aluno('Viviane', 'vivi', 'v123', 'Informática')
+# print(aluna1.consulta_nome())
+# print(aluna1.consulta_curso())
 
-prof1 = Professor('Tatiana', 'tati', 't123', 'Doutorado')
-print(prof1.consulta_nome())
-print(prof1.consulta_titulacao())
+# prof1 = Professor('Tatiana', 'tati', 't123', 'Doutorado')
+# print(prof1.consulta_nome())
+# print(prof1.consulta_titulacao())
