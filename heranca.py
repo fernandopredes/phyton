@@ -5,6 +5,8 @@ class Pessoa:
         self.__senha = senha
     def consulta_nome(self):
         return self.__nome
+    def consulta_login(self):
+        return self.__login
 
 class Aluno(Pessoa):
     def __init__(self, nome, login, senha, curso):
