@@ -73,3 +73,5 @@ print(novo_aluno.consulta_login())
 
 novo_aluno.gera_ocorrencia(["atrasado","faltou aula"])
 print(novo_aluno.consulta_historico())
+
+import this
