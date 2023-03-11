@@ -93,7 +93,8 @@ def add_comentario(produto_id):
     produto = session.query(Produto).filter(Produto.id == produto_id).first()
     if not produto:
          error_msg = "Produto não encontrado na base :/"
-         return render_template("error.html", error_code= 404, error_msg=error_msg), 404
+         response =  make_response(jsonify({'error': error_msg}, 404))
+         return response
 
     autor = request.form.get('autor')
     texto = request.form.get('texto')
@@ -101,7 +102,17 @@ def add_comentario(produto_id):
     if n_estrelas:
         n_estrelas = int(n_estrelas)
 
-    comentario = Comentario(autor, texto, n_estrelas)
+    comentario = Comentario(texto, n_estrelas, autor)
     produto.adiciona_comentario(comentario)
     session.commit()
-    return render_template('produto.html', produto = produto), 200
+    response = {
+            'message': 'Comentário adicionado com sucesso',
+            'comentário': {
+                'id': comentario.id,
+                'data_insercao': comentario.data_insercao,
+                'estrelas': comentario.n_estrelas,
+                'texto': comentario.texto,
+                'autor': comentario.autor
+            }
+        }
+    return make_response(jsonify(response), 200)
