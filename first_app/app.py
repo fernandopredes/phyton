@@ -4,6 +4,7 @@ from sqlalchemy.exc import IntegrityError
 from model import Session, Produto
 from model.comentario import Comentario
 
+
 app = Flask(__name__)
 
 @app.route('/')

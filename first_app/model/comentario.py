@@ -11,7 +11,7 @@ class Comentario(Base):
     texto = Column(String(4000))
     data_insercao = Column(DateTime, default = datetime.now())
 
-    produto = Column(Integer, ForeignKey("produto.pk_produto", nullable = False))
+    produto = Column(Integer, ForeignKey("produto.pk_produto"), nullable = False)
 
     def __init__(self, texto:str, data_insercao:Union[DateTime, None] = None):
         self.texto = texto
