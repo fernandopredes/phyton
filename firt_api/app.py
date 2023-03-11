@@ -76,11 +76,16 @@ def get_produto(produto_id):
 def delete_produto(produto_id):
     session = Session()
     count = session.query(Produto).filter(Produto.id == produto_id).delete()
+    session.commit()
+    print(count)
     if count == 1:
-        return render_template('deletado.html', produto_id = produto_id), 200
+        msg = 'Produto deletado'
+        response =  make_response(jsonify({'msg': msg}, 200))
+        return response
     else:
         error_msg = 'Produto não existe'
-        return render_template('error.html', error_code = 404, error_msg = error_msg), 404
+        response =  make_response(jsonify({'error': error_msg}, 404))
+        return response
 
 @app.route('/add_comentario/<produto_id>', methods = ['POST'])
 def add_comentario(produto_id):
