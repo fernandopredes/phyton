@@ -40,10 +40,10 @@ def add_produto():
 @app.route('/get_produto/<produto_id>', methods=['GET'])
 def get_produto(produto_id):
     session = Session()
-    produto = session.query(Produto).filter(Produto.id == produto_id)
+    produto = session.query(Produto).filter(Produto.id == produto_id).first()
     if not produto:
-        erro_msg = 'Produto não encontrado'
-        return render_template('error.html', error_code = 404, erro_msg =erro_msg), 404
+        error_msg = 'Produto não encontrado'
+        return render_template('error.html', error_code = 404, error_msg =error_msg), 404
     else:
         return render_template('produto.html', produto = produto), 200
 
@@ -51,6 +51,7 @@ def get_produto(produto_id):
 def delete_produto(produto_id):
     session = Session()
     count = session.query(Produto).filter(Produto.id == produto_id).delete()
+    session.commit()
     if count == 1:
         return render_template('deletado.html', produto_id = produto_id), 200
     else:
