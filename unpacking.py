@@ -16,3 +16,16 @@ def apply(*args, operator):
         return "no valid operator"
 
 print(apply(2,3,operator="*"))
+
+def name(**kwargs):
+    print(kwargs)
+
+name(name='bob', age='25')
+
+def print_nicely(**kwargs):
+    name(**kwargs)
+    for arg, value in kwargs.items():
+        print(f"{arg}: {value}")
+
+print_nicely(name='hannah',age='32')
+
