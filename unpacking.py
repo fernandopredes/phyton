@@ -28,4 +28,3 @@ def print_nicely(**kwargs):
         print(f"{arg}: {value}")
 
 print_nicely(name='hannah',age='32')
-
