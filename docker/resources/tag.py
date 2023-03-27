@@ -4,7 +4,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from db import db
 from models import TagModel, StoreModel, ItemModel
-from schemas import TagSchema
+from schemas import TagSchema, TagAndItemSchema
 
 
 blp = Blueprint("Tags", "tags", description="Operations on tags")
@@ -37,7 +37,7 @@ class TagsInStore(MethodView):
         return tag
 
 
-""" @blp.route("/item/<string:item_id>/tag/<string:tag_id>")
+@blp.route("/item/<string:item_id>/tag/<string:tag_id>")
 class LinkTagsToItem(MethodView):
     @blp.response(201, TagSchema)
     def post(self, item_id, tag_id):
@@ -69,7 +69,7 @@ class LinkTagsToItem(MethodView):
 
         return {"message": "Item removed from tag", "item": item, "tag": tag}
 
- """
+
 @blp.route("/tag/<string:tag_id>")
 class Tag(MethodView):
     @blp.response(200, TagSchema)
@@ -77,7 +77,7 @@ class Tag(MethodView):
         tag = TagModel.query.get_or_404(tag_id)
         return tag
 
-"""  @blp.response(
+    @blp.response(
         202,
         description="Deletes a tag if no item is tagged with it.",
         example={"message": "Tag deleted."},
@@ -98,4 +98,3 @@ class Tag(MethodView):
             400,
             message="Could not delete tag. Make sure tag is not associated with any items, then try again.",  # noqa: E501
         )
- """
