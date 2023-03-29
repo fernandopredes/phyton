@@ -32,7 +32,7 @@ class Item(MethodView):
         db.session.commit()
 
         return item
-    
+
     @jwt_required()
     def delete(self, item_id):
         item = ItemModel.query.get_or_404(item_id)
@@ -42,6 +42,7 @@ class Item(MethodView):
 
 @blp.route('/item')
 class ItemList(MethodView):
+    @jwt_required()
     @blp.response(200, ItemSchema(many=True))
     def get(self):
         return ItemModel.query.all()

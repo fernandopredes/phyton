@@ -6,6 +6,7 @@ from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 
 from db import db
+from blocklist import BLOCKLIST
 import models
 
 from resources.item import blp as ItemBlueprint
